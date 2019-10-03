@@ -1,0 +1,25 @@
+<div class="col-md-6 offset-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Edit {{team.name}}
+        </div>
+        <div class="panel-body">
+            {{#form "#" class="form"}}
+                <div class="form-group">
+                    {{label "name" "Team Name"}}
+                    {{input "name" team.name class="form-control"}}
+                </div>
+                <div class="form-group">          
+                    {{label "shortName" "Short Name"}}
+                    {{input "shortName" team.shortName class="form-control"}}
+                </div>
+                <div class="form-group">
+                    {{label "logo" "Team Logo"}}
+                    {{input "logo" team.logo class="form-control"}}
+                </div>
+                {{button "submit" "Save" class="btn btn-primary btn-sm" type="submit"}}
+                {{hidden "teamId" team.id}}
+            {{/form}}
+        </div>
+    </div>
+</div>

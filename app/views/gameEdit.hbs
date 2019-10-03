@@ -1,0 +1,53 @@
+<div class="col-md-6 offset-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Edit {{game.name}}
+        </div>
+        <div class="panel-body">
+            {{#form "#" class="form"}}
+                <div class="row">
+
+                
+                <div class="form-group col-md-12">
+                    {{label "gameTime" "Game Time"}}
+                    {{input "gameTime" game.gameTime class="form-control datetimepicker"}}
+                </div>
+                <div class="form-group col-md-6">
+                    {{label "Home" "Home Team"}}
+                    {{select "HomeTeamId" teams game.homeTeamId class="form-control"}}
+                </div>
+                
+                <div class="form-group col-md-6">
+                    {{label "Away" "Away Team"}}
+                    {{select "AwayTeamId" teams game.awayTeamId class="form-control"}}
+                </div>
+                <div class="form-group col-md-6">
+                    {{label "TimeSlot" "Time Slot"}}
+                    {{select "timeSlotId" timeSlots game.timeSlotId class="form-control"}}
+                </div>
+                <div class="form-group col-md-6">
+                    {{label "favored" "Favored"}}
+                    {{select "favored" favorValues game.favored class="form-control"}}
+                    
+                </div>
+                <div class="form-group col-md-6">
+                    {{label "spread" "Spread"}}
+                    {{input "spread" game.spread class="form-control"}}
+                </div>  
+                </div>
+                {{button "submit" "Save" class="btn btn-primary btn-sm" type="submit"}}
+                {{hidden "gameId" game.id}}
+            {{/form}}
+
+            
+        </div>
+    </div>
+</div>
+
+ <script type="text/javascript">
+            $(function () {
+                $('.datetimepicker').datetimepicker({
+                    format: 'HH:mm'
+                });
+            });
+        </script>

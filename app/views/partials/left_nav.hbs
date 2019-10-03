@@ -1,0 +1,11 @@
+{{#if User}}
+  <div class="sidenav">
+    <a href="./dashboard" {{#if Page.dashboard}} class="active"{{/if}}><i class="fas fa-football-ball"></i><span style="float:right">Games</span></a>
+    <a href="./myBets" {{#if Page.myBets}}class="active"{{/if}}><i class="fas fa-hand-holding-usd"></i><span style="float:right">My Bets</span> </a>
+    <a href="./rank" {{#if Page.rank}}class="active"{{/if}}><i class="fas fa-list-ol"></i><span style="float:right">Rank</span></a>
+    <a href="./hall" {{#if Page.hall}}class="active"{{/if}}><i class="fas fa-trophy"></i><span style="float: right">Hall</span></a>
+    {{#if User.isAdmin}}<a href="./admin" {{#if Page.admin}}class="active"{{/if}}</a><i class="fas fa-user-cog"></i><span style="float:right">Admin</span></a>{{/if}}
+    <a ><i class="fas fa-dollar-sign"></i> <span style="float:right">{{User.bankroll}}</span></a>
+  </div>
+  
+{{/if}}

@@ -1,0 +1,31 @@
+
+       
+<form method="post" action="/betEdit/false/{{bet.id}}" class="form betForm">
+        <div class="form-group">
+            {{label "name" "Team Name"}}
+            {{#if team.name}}
+                {{hidden "teamId" team.id}}
+                <br/>{{team.name}} <br />
+            {{/if}}
+            {{#if bet.Team.name}}
+                {{hidden "teamId" bet.Team.id}}
+                <br/>{{bet.Team.name}} <br />
+            {{/if}}
+        </div>
+        <div class="form-group">
+            {{label "amount" "Amount"}}
+            <input name="amount" value="{{bet.amount}}"class="form-control" required="required" type="number" max="{{add User.bankroll bet.amount}}">
+        </div>
+        
+        {{hidden "betId" bet.id}}
+        {{hidden "timeSlotId" timeSlotId}}
+       
+        <div class="form-group">
+             {{#if bet.id}}
+                <button type="button" class="btn btn-danger delete" data-betid="{{bet.id}}">Delete</button>
+            {{/if}}
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+</form>
+     
+     

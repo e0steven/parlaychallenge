@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Team</th>
+      <th scope="col">Bet Amount</th>
+      <th scope="col">Won</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each bets}}
+      <tr>
+        <td>
+            {{this.Team.name}}
+             
+        </td>
+        <td>
+          {{this.amount}}
+        </td>
+        <td>
+          {{this.win}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

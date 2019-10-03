@@ -1,0 +1,25 @@
+<h1> Hall of Fame </h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Year</th>
+      <th scope="col">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each hall}}
+      <tr>
+        <td>
+          {{this.name}}
+        </td>
+        <td>
+          {{this.year}}
+        </td>
+        <td>
+          $ {{this.win}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,88 @@
+<div class=" col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{this.snapshots.0.Timeslot.name}} Locks
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Person</th>
+                    <th scope="col">Locked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each snapshots}}
+                    <tr class="{{#if this.locked}}success{{else}}danger{{/if}}">
+                        <td>
+                            {{this.User.name}}
+                        </td>
+                        <td>
+                        {{#if this.locked}}<i class='fas fa-lock'></i> Locked{{else}}<i class='fas fa-lock-open'></i> Unlocked{{/if}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class=" col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{this.snapshots.0.Timeslot.name}} Bets
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Team</th>
+                    <th scope="col">Bet Total</th>
+                    <th scope="col">Winning Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each bets}}
+                    <tr>
+                        <td>
+                            {{this.Team.name}}
+                        </td>
+                        <td>
+                        {{ this.dataValues.betTotal}}
+                        </td>
+                        <td>
+                             <input name="{{this.Team.id}}" value="{{bet.amount}}" data-total="{{this.dataValues.betTotal}}" class="form-control bet">
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <a class="btn btn-success btn-sm" id="save">Save Wins/Advance Timeslot</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+$('#save').click(function(){   
+    var data = [];
+    $('.bet').each(function(){
+        if (parseFloat($(this).val()) > 0){
+            data.push({
+                teamId: $(this).attr('name'),
+                betTotal: $(this).data('total'),
+                winning: $(this).val()
+            })
+        }
+    })
+    var postData = {
+        teams: data
+    }
+    if(confirm("Are you sure you want to advance, this cannot be undone.")){
+        $.post('./advanceLock',postData,function(data){
+                window.location.reload();
+            })
+
+    }
+})
+</script>

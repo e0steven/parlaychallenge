@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Short Name</th>
+      <th scope="col">Logo</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each teams}}
+      <tr>
+        <td>
+          {{this.name}}
+        </td>
+        <td>
+          {{this.shortName}}
+        </td>
+        <td>
+          <img src="/logos/{{this.logo}}" style="height:70px; width: 70px;">
+        </td>
+        <td>
+          <a href="/teamEdit/{{id}}"><button type="button" class="btn btn-primary">Edit</button></a>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,125 @@
+/*
+Graph bars
+*/
+.btn-arrow-right, .btn-arrow-left {
+    position: relative;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .btn-arrow-right {
+    padding-left: 36px;
+  }
+  .btn-arrow-left {
+    padding-right: 36px;
+  }
+  .btn-arrow-right:before, .btn-arrow-right:after, .btn-arrow-left:before,
+    .btn-arrow-left:after {
+    /* make two squares (before and after), looking similar to the button */
+    content: "";
+    position: absolute;
+    top: 5px; /* move it down because of rounded corners */
+    width: 22px; /* same as height */
+    height: 22px; /* button_outer_height / sqrt(2) */
+    background: inherit; /* use parent background */
+    border: inherit; /* use parent border */
+    border-left-color: transparent; /* hide left border */
+    border-bottom-color: transparent; /* hide bottom border */
+    border-radius: 0px 4px 0px 0px;
+    /* round arrow corner, the shorthand property doesn't accept "inherit" so it is set to 4px */
+    -webkit-border-radius: 0px 4px 0px 0px;
+    -moz-border-radius: 0px 4px 0px 0px;
+  }
+  
+  .btn-arrow-right:before, .btn-arrow-right:after {
+    transform: rotate(45deg);
+    /* rotate right arrow squares 45 deg to point right */
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+  }
+  
+  .btn-arrow-left:before, .btn-arrow-left:after {
+    transform: rotate(225deg);
+    /* rotate left arrow squares 225 deg to point left */
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+  }
+  
+  .btn-arrow-right:before, .btn-arrow-left:before {
+    /* align the "before" square to the left */
+    left: -11px;
+  }
+  
+  .btn-arrow-right:after, .btn-arrow-left:after {
+    /* align the "after" square to the right */
+    right: -11px;
+  }
+  
+  .btn-arrow-right:after, .btn-arrow-left:before {
+    /* bring arrow pointers to front */
+    z-index: 1;
+  }
+  
+  .btn-arrow-right:before, .btn-arrow-left:after {
+    /* hide arrow tails background */
+    background-color: white;
+  }
+  /* end arrows */
+  /* border between col */
+  .border-between > [class*='col-']:before {
+    background: #e3e3e3;
+    bottom: 0;
+    content: " ";
+    left: 0;
+    position: absolute;
+    width: 1px;
+    top: 0;
+ }
+ 
+ .border-between > [class*='col-']:first-child:before {
+    display: none;
+ }
+ /* end col
+ /* left nav */
+  /* The sidebar menu */
+.sidenav {
+  
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 60px; /* Stay at the top */
+  left: 0;
+  background-color: lightgrey;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .sidenav .active {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} 
+/*end left nav */

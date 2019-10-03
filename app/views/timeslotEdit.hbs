@@ -1,0 +1,21 @@
+<div class="col-md-6 offset-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Edit {{team.name}}
+        </div>
+        <div class="panel-body">
+            {{#form "#" class="form"}}
+                <div class="form-group">
+                    {{label "name" "Time Slot Name"}}
+                    {{input "name" timeslot.name class="form-control"}}
+                </div>
+                <div class="form-group">
+                    {{label "active" "Active"}}
+                    {{checkbox "active" "1" timeslot.active}}
+                </div>
+                {{button "submit" "Save" class="btn btn-primary btn-sm" type="submit"}}
+                {{hidden "timeslotId" timeslot.id}}
+            {{/form}}
+        </div>
+    </div>
+</div>

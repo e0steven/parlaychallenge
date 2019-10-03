@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col">Current Bank</th>
+      <th scope="col">Person</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each snapshots}}
+      <tr>
+        <td>
+            {{add @index 1}}
+        </td>
+        <td>
+          {{this.bankroll}}
+        </td>
+        <td>
+          {{this.User.name}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
