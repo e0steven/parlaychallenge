@@ -4,9 +4,10 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var hbs = require('handlebars');
-var formHelpers = require('handlebars-form-helpers').register(hbs);
 var customHelpers = require('./app/views/helpers/customHelpers');
 var flash = require('express-flash');
+require('dotenv').config();
+require('handlebars-form-helpers').register(hbs);
 
 customHelpers.register(hbs);
 
