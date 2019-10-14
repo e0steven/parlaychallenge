@@ -54,7 +54,7 @@ var register = function(Handlebars) {
                 })   
             }
         }else{
-            if (locked || !active){
+            if (locked || !active || snapShot[0].bankroll <= 5){
                 
             }else{
                 output += "<a href='./betEdit/" + game.timeSlotId + "/false/";
@@ -96,6 +96,24 @@ var register = function(Handlebars) {
         }else{
         return "<button class='btn btn-sm btn-danger' disabled='disabled'>Under Minimum</button>";
         }
+    },
+    adminLock: function(snapshots){
+        var output= "";
+        snapshots.forEach(snapshot =>{
+            if (snapshot.bankroll <= 5){
+                
+                output += "<tr class='warning'><td>"+snapshot.User.name+"</td><td><i class='fas fa-lock'></i> Out</td></tr>";
+            }else{
+                if (snapshot.locked){
+                    output += "<tr class='success'><td>"+snapshot.User.name+"</td><td><i class='fas fa-lock'></i> Locked </td></tr>";
+                }else{
+                    output += "<tr class='danger'><td>"+snapshot.User.name+"</td><td><i class='fas fa-lock-open'></i> Unlocked</td></tr>"
+                }
+                
+            }
+            
+        })
+        return output;
     },
     debug: function(optionalValue) {
         var output="";

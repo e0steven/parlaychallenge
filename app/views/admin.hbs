@@ -12,16 +12,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each snapshots}}
-                    <tr class="{{#if this.locked}}success{{else}}danger{{/if}}">
-                        <td>
-                            {{this.User.name}}
-                        </td>
-                        <td>
-                        {{#if this.locked}}<i class='fas fa-lock'></i> Locked{{else}}<i class='fas fa-lock-open'></i> Unlocked{{/if}}
-                        </td>
-                    </tr>
-                    {{/each}}
+                    {{{adminLock this.snapshots}}}
                 </tbody>
             </table>
         </div>
